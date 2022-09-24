@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 
 def bottle_neck_detection(df, t, po, begin, end):
@@ -30,8 +31,13 @@ def bottle_neck_detection(df, t, po, begin, end):
                                         output = np.append(output, [[xi, xj, i]], axis = 0 )
     
     output = output[1:]
-    bottle_neck = [output[0,]]
     
+    try:
+        bottle_neck = [output[0,]]
+    except IndexError:
+        print("No bottle neck is detected in this section. Program terminates.")
+        return ("error", "occured")
+        
     max0 = output[0,0]
     min0 = output[0,1]
     t0 = output[0,2]

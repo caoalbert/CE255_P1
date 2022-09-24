@@ -6,13 +6,6 @@ import numpy as np
 
 files = os.listdir("data/")
 
-miles = []
-for i in files:
-    pos = i.split()[1].split(".csv")[0]
-    miles.append(float(pos))
-miles.sort()
-miles
-
 
 
 
@@ -30,18 +23,6 @@ for i in files:
     new["position"] = new["position"].astype("float64")
     df = pd.concat([df, new], 0)
     
-section_length = []
-for i in np.arange(1, len(df)-1):
-    section = df["position"][i]-df["position"][i-1]
-    section_length.append(section)
-
-df["section length"] = section_length
-
-
-
-
-
-
 df2 = df[["position", "Speed (mph)", "5 Minutes"]]
 df2["5 Minutes"] = pd.to_datetime(df2["5 Minutes"])
 
