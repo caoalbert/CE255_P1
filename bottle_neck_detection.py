@@ -52,16 +52,17 @@ def bottle_neck_detection(df, t, po, begin, end):
         if a > index:
             break
         
-        
-        
-        bottle_neck = np.append(bottle_neck, [[max0, min0, output[a,2]]], axis  = 0)
+        bottle_neck = np.append(bottle_neck, [[max0, min0, t0]], axis  = 0)
         max0 = output[a,0]
         min0 = output[a,1]
         t0 = output[a,2]
         if b:
             a += 1
             b = False
-
-
-    return bottle_neck
+            
+            if a == index:
+                bottle_neck = np.append(bottle_neck, [[max0, min0, t0]], axis  = 0)
+    bottle_neck = bottle_neck[1:]
+                
+    return (output, bottle_neck)
     
