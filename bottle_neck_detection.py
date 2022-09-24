@@ -36,28 +36,32 @@ def bottle_neck_detection(df, t, po, begin, end):
     min0 = output[0,1]
     t0 = output[0,2]
     a = 1
-    while a < output.shape[0]-1:
-        if a > 1:
-            bottle_neck = np.append(bottle_neck, [[max0, min0, output[a,2]]], axis  = 0)
-            max0 = output[a,0]
-            min0 = output[a,1]
-            t0 = output[a,2]
-            a += 1
-        
+    b = False
+    index = output.shape[0]-1
+    
+    while a < index:
         while t0 == output[a,2]:
             if output[a,0] > max0:
                 max0 = output[a,0]
             if output[a,1] < min0:
                 min0 = output[a,1]    
             a += 1
-            if a >= output.shape[0]:
+            b = True
+            if a > index:
                 break
-        if a >= output.shape[0]:
+        if a > index:
             break
-    
- 
-            
+        
+        
+        
+        bottle_neck = np.append(bottle_neck, [[max0, min0, output[a,2]]], axis  = 0)
+        max0 = output[a,0]
+        min0 = output[a,1]
+        t0 = output[a,2]
+        if b:
+            a += 1
+            b = False
 
 
-    return output
+    return bottle_neck
     
