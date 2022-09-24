@@ -1,6 +1,7 @@
 # CE255 Project 1
 
 `read_pems.py` contains a function called `read_pems()` that takes a `datetime` object and returns the a tuple of length 3 containing the joined dataframe with loop detection position, a list of timestamps in the dataframe, and a list of loop detection positions. 
+<hr/>
 
 `bottle_neck_detection.py` contains a function called `bottle_neck_detection()` that takes 5 arguments to detect bottle neck starting position and ending position during the 24 hr time window.
 
