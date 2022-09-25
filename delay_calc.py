@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def delay_calc(df, po, bn, vf):
     loop_detector_coverage = {}
@@ -32,7 +33,7 @@ def delay_calc(df, po, bn, vf):
             delay_i = max(vht_i-vmt_i/vf, 0)
             delay.append(delay_i)
             
-    return delay
+    return np.sum(delay)
         
 
 

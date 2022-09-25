@@ -1,11 +1,10 @@
 import numpy as np
-import sys
 
 
 def bottle_neck_detection(df, t, po, begin, end):
     
     output = np.empty(shape = (1,3))
-    sec = po[po.index(end):po.index(begin)]
+    sec = po[po.index(end):po.index(begin)+1]
     sec.reverse()
     
     
