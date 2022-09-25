@@ -23,8 +23,8 @@ Inputs:
 1. df: A dataframe processed by `read_pems()` 
 2. t: A list of timestamps, output by `read_pems()`
 3. po: A list of positions, output by `read_pems()`
-4. begin: An integer, the upstream position
-5. end: An integer, the downstream position
+4. begin: An float, the upstream position
+5. end: An float, the downstream position
 
 *Note: The upstream and downstream positions must at the location of the loop detectors
 

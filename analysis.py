@@ -7,6 +7,8 @@ import datetime
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Before calculating the travel time, filter out the first 3 detectors that fall out of the scope of the report.
+
 # Recurrent bottleneck on 9/13
 df_913, t_913, po_913 = read_pems(datetime.date(2022, 9, 13))
 output_913, bottle_neck_913 = bottle_neck_detection(df_913, t_913, po_913, 10.4, 6.63)
